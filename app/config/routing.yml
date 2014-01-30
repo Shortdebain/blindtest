@@ -1,0 +1,5 @@
+dc3_blintest:
+    resource: "@dc3BlintestBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
