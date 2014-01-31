@@ -1,0 +1,23 @@
+body {margin:0; padding:0; font-family:'Roboto';}
+
+.wrapper {width:960px; margin:0 auto;}
+
+a {text-decoration:none; color:;}
+.box-shadow {
+	border-right:1px solid #73C8B0;
+	-webkit-box-shadow:1px 0px 1px 3px #ffffff;
+	-khtml-box-shadow:1px 0px 1px 3px #ffffff;
+	-moz-box-shadow:1px 0px 1px 3px #ffffff;
+	-ms-box-shadow:1px 0px 1px 3px #ffffff;
+	-o-box-shadow:1px 0px 1px 3px #ffffff;
+	box-shadow:1px 0px 0px 0px #ffffff;
+}
+/*-------- HEADER -------*/
+
+header {padding:15px 0 15px; background:#73C8A9;}
+#contentHeader {position:relative;}
+#linkList {list-style:none; text-align:right;}
+#linkList a {padding:15px 0 15px;}
+.listItems {display:inline-block; vertical-align:top; padding:15px 10px 15px;}
+
+/*-------- FIN HEADER -------*/

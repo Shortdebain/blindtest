@@ -3,11 +3,18 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% stylesheets '@dc3BlintestBundle/Resources/public/css/*' %}
+        	<link rel="stylesheet" type="text/css" href="{{ asset_url }}">
+        	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,500,700' rel='stylesheet' type='text/css'>
+        {% endstylesheets %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block body %}
+        
+        {% endblock %}
+        {% javascripts '@dc3BlintestBundle/Resources/public/js/*' %}
+        	<script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
     </body>
 </html>

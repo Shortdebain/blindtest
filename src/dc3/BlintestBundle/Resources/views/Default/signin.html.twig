@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+{% block title "hello !" %}
+{% block body %}
+	<main>
+		<header>
+			<div id="contentHeader" class="wrapper">
+				<ul id="linkList">
+				<li class="listItems box-shadow"><a class="linkHeader" href="">Inscrition</a></li>
+				<li class="listItems box-shadow"><a class="linkHeader" href="">Connexion</a></li>
+				<li class="listItems"><a class="linkHeader" href="">Connexion via Deezer</a></li>
+				</ul>
+			</div>
+		</header>
+		<div id="mainContent">
+			<div id="content" class="wrapper">
+				<form method="POST" action="form.php">
+					<input type="text" name="name" placeholder="Entrez votre pseudonyme">
+					<input type="password" name="pswd" placeholder="Entrez votre mot de passe">
+					<input type="email" name="email" placeholder="Entrez votre email">
+					<input type="sumbmit" name="submit" value="M'inscrire !">
+				</form>
+			</div>
+		</div>
+		<footer>
+			<div id="contentFooter" class="wrapper">
+				
+			</div>
+		</footer>
+	</main>
+{% endblock %}

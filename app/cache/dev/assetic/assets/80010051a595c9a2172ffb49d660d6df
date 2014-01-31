@@ -1,0 +1,14 @@
+body {margin:0; padding:0; font-family:'Roboto';}
+
+.wrapper {width:960px; margin:0 auto;}
+
+a {text-decoration:none; color:;}
+
+/*-------- HEADER -------*/
+
+header {padding:15px 0 15px; background:#73C8A9;}
+#contentHeader {position:relative;}
+#linkList {list-style:none; text-align:right;}
+.listItems {display:inline-block; vertical-align:top;}
+
+/*-------- FIN HEADER -------*/

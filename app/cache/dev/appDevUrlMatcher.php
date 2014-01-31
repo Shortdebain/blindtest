@@ -27,6 +27,40 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $context = $this->context;
         $request = $this->request;
 
+        if (0 === strpos($pathinfo, '/css/6bbfecd')) {
+            // _assetic_6bbfecd
+            if ($pathinfo === '/css/6bbfecd.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '6bbfecd',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_6bbfecd',);
+            }
+
+            if (0 === strpos($pathinfo, '/css/6bbfecd_part_1_main_')) {
+                // _assetic_6bbfecd_0
+                if ($pathinfo === '/css/6bbfecd_part_1_main_1.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '6bbfecd',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_6bbfecd_0',);
+                }
+
+                // _assetic_6bbfecd_1
+                if ($pathinfo === '/css/6bbfecd_part_1_main_2.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '6bbfecd',  'pos' => 1,  '_format' => 'css',  '_route' => '_assetic_6bbfecd_1',);
+                }
+
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/js/0ca108c')) {
+            // _assetic_0ca108c
+            if ($pathinfo === '/js/0ca108c.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '0ca108c',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_0ca108c',);
+            }
+
+            // _assetic_0ca108c_0
+            if ($pathinfo === '/js/0ca108c_part_1_main_1.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '0ca108c',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_0ca108c_0',);
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/_')) {
             // _wdt
             if (0 === strpos($pathinfo, '/_wdt') && preg_match('#^/_wdt/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {
@@ -135,9 +169,107 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // dc3_blintest_default_index
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'dc3_blintest_default_index')), array (  '_controller' => 'dc3\\BlintestBundle\\Controller\\DefaultController::indexAction',));
+        // home-page
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'home-page');
+            }
+
+            return array (  '_controller' => 'dc3\\BlintestBundle\\Controller\\DefaultController::indexAction',  '_route' => 'home-page',);
+        }
+
+        // about
+        if ($pathinfo === '/a-propos') {
+            return array (  '_controller' => 'dc3\\BlintestBundle\\Controller\\DefaultController::aboutAction',  '_route' => 'about',);
+        }
+
+        // signin
+        if ($pathinfo === '/sign-in') {
+            return array (  '_controller' => 'dc3\\BlintestBundle\\Controller\\DefaultController::signinAction',  '_route' => 'signin',);
+        }
+
+        if (0 === strpos($pathinfo, '/ranking')) {
+            // ranking
+            if (rtrim($pathinfo, '/') === '/ranking') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_ranking;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'ranking');
+                }
+
+                return array (  '_controller' => 'dc3\\BlintestBundle\\Controller\\RankingController::indexAction',  '_route' => 'ranking',);
+            }
+            not_ranking:
+
+            // ranking_create
+            if ($pathinfo === '/ranking/') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_ranking_create;
+                }
+
+                return array (  '_controller' => 'dc3\\BlintestBundle\\Controller\\RankingController::createAction',  '_route' => 'ranking_create',);
+            }
+            not_ranking_create:
+
+            // ranking_new
+            if ($pathinfo === '/ranking/new') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_ranking_new;
+                }
+
+                return array (  '_controller' => 'dc3\\BlintestBundle\\Controller\\RankingController::newAction',  '_route' => 'ranking_new',);
+            }
+            not_ranking_new:
+
+            // ranking_show
+            if (preg_match('#^/ranking/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_ranking_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ranking_show')), array (  '_controller' => 'dc3\\BlintestBundle\\Controller\\RankingController::showAction',));
+            }
+            not_ranking_show:
+
+            // ranking_edit
+            if (preg_match('#^/ranking/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_ranking_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ranking_edit')), array (  '_controller' => 'dc3\\BlintestBundle\\Controller\\RankingController::editAction',));
+            }
+            not_ranking_edit:
+
+            // ranking_update
+            if (preg_match('#^/ranking/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'PUT') {
+                    $allow[] = 'PUT';
+                    goto not_ranking_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ranking_update')), array (  '_controller' => 'dc3\\BlintestBundle\\Controller\\RankingController::updateAction',));
+            }
+            not_ranking_update:
+
+            // ranking_delete
+            if (preg_match('#^/ranking/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_ranking_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ranking_delete')), array (  '_controller' => 'dc3\\BlintestBundle\\Controller\\RankingController::deleteAction',));
+            }
+            not_ranking_delete:
+
         }
 
         // _welcome

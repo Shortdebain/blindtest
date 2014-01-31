@@ -1,0 +1,36 @@
+body {margin:0; padding:0; font-family:'Roboto';}
+
+.wrapper {width:960px; margin:0 auto;}
+
+a {text-decoration:none;}
+.box-shadow {
+	border-right:1px solid #73C8B0;
+	-webkit-box-shadow:1px 0px 0px 0px #099562;
+	-khtml-box-shadow:1px 0px 0px 0px #099562;
+	-moz-box-shadow:1px 0px 0px 0px #099562;
+	-ms-box-shadow:1px 0px 0px 0px #099562;
+	-o-box-shadow:1px 0px 0px 0px #099562;
+	box-shadow:1px 0px 0px 0px #099562;
+}
+/*-------- HEADER -------*/
+
+header {background:#73C8A9;}
+#contentHeader {position:relative;}
+#linkList {list-style:none; text-align:right;margin:0; font-size:0;}
+.listItems a {padding:20px 10px 20px; color:#373B44; font-size:12pt;
+
+}
+.listItems:hover {background:#099562; color:white;}
+.listItems a:hover {color:white;
+-webkit-text-shadow:0px 0px 0px #8fcfb8;
+-khtml-text-shadow:0px 0px 0px #8fcfb8;
+-moz-text-shadow:0px 0px 0px #8fcfb8;
+-ms-text-shadow:0px 0px 0px #8fcfb8;
+-o-text-shadow:0px 0px 0px #8fcfb8;
+text-shadow:0px 0px 0px #8fcfb8;
+}
+.listItems {display:inline-block; vertical-align:top; padding:20px 0px 20px;}
+
+/*-------- FIN HEADER -------*/
+
+#mainContent {background:#373B44; height:250px;}

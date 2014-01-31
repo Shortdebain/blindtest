@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+{% block title "hello !" %}
+{% block body %}
+	<main>
+		<header>
+			<div id="contentHeader" class="wrapper">
+				<ul id="linkList">
+				<li class="listItems box-shadow"><a class="linkHeader" href="{{ path('signin') }}">Inscrition</a></li>
+				<li class="listItems box-shadow"><a class="linkHeader" href="">Connexion</a></li>
+				<li class="listItems"><a class="linkHeader" href="">Connexion via Deezer</a></li>
+					<li class="listItems"><a class="linkHeader" href="{{ path('about') }}
+				</ul>
+			</div>
+		</header>
+		<div id="mainContent">
+			<div id="content" class="wrapper">
+			
+			</div>
+		</div>
+		<footer>
+			<div id="contentFooter" class="wrapper">
+				
+			</div>
+		</footer>
+	</main>
+{% endblock %}

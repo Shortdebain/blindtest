@@ -1,1 +1,45 @@
-<h1>Hello <strong>{{ name }}!</strong></h1>
+{% extends '::base.html.twig' %}
+{% block title "hello !" %}
+{% block body %}
+	<main>
+		<header>
+			<div id="contentHeader" class="wrapper">
+				<ul id="linkList">
+				<li class="listItems box-shadow"><a class="linkHeader" href="{{ path('signin') }}">Inscrition</a></li>
+				<li class="listItems box-shadow"><a class="linkHeader" href="">Connexion</a></li>
+				<li class="listItems"><a class="linkHeader" href="">Connexion via Deezer</a></li>
+				<li class="listItems"><a class="linkHeader" href="{{ path('about') }}">A propos</a></li>
+				
+				</ul>
+			</div>
+		</header>
+		<div id="mainContent">
+			<div id="content" class="wrapper">
+				<div id="player"></div>
+				<div id="dz-root"></div>
+					<script src="http://cdn-files.deezer.com/js/min/dz.js"></script>
+					<script>
+						DZ.init({
+							appId  : '129135',
+							channelUrl : 'http://blindtest.nicolasr.dc3/channel.html',
+							player: {
+								container: 'player',
+								width : 800,
+								height : 300,
+								muted: false,
+								autoplay:true,
+								onload : function(){
+									DZ.player.playTracks[3135553];
+								}
+							}
+						});
+					</script>
+			</div>
+		</div>
+		<footer>
+			<div id="contentFooter" class="wrapper">
+				
+			</div>
+		</footer>
+	</main>
+{% endblock %}
